@@ -1,0 +1,20 @@
+# Byte-compiled
+__pycache__/
+
+# edition
+.idea/
+.vscode/
+snippets/
+
+# python environment
+env/
+
+# build
+build/
+dist/
+build.cmd
+make.cmd
+*.spec
+
+# files
+notes.*
