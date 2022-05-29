@@ -70,7 +70,7 @@ def cv2_show(images_: [],
 
         # Downsize image maintaining aspect ratio and show it in the window
         if fit_image_:
-            cv2.imshow(win_name_, resize(images_[i_], width=300))
+            cv2.imshow(win_name_, resize(images_[i_], width=400))
         else:
             cv2.imshow(win_name_, images_[i_])
 

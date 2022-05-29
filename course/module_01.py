@@ -7,6 +7,7 @@
 import cv2
 
 # --- App modules ---
+from .constants import IMAGE_SUB_FOLDER_
 from helper import show_helper, os_helper
 
 
@@ -21,7 +22,7 @@ def plot_image(image_file_: str,
     :param plot_color_map_: color map to display image with matplotlib
     :param print_it_: flag to print or not the image
     """
-    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, 'images', 'tinified')
+    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, *IMAGE_SUB_FOLDER_)
 
     if file_exists_:
         # Load image with OpenCV
@@ -36,7 +37,7 @@ def plot_image(image_file_: str,
 
             # Print the image data (pixel values), if the image was read like:
             #  - cv2.IMREAD_GRAYSCALE is a 2D numpy array, each pixel has 8-bits (0,255)
-            #  - cv2.IMREAD_COLOR is a 3D numpy array, each pixel has another array with its color channel (BGR)
+            #  - cv2.IMREAD_COLOR is a 3D numpy array, each pixel has another array with its color channel (BGR format)
             print(image_)
 
         if plot_color_map_ == '':
@@ -66,7 +67,7 @@ def split_image(image_file_: str):
     Splits the image into the B,G,R components
     :param image_file_: filename of the image file to process
     """
-    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, 'images', 'tinified')
+    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, *IMAGE_SUB_FOLDER_)
 
     if file_exists_:
         # Load image with OpenCV in default mode
@@ -100,7 +101,7 @@ def convert_color_space(image_file_: str):
     Converts color space of the image to HSV and split it into the Hue,Saturation,Value components
     :param image_file_: filename of the image file to process
     """
-    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, 'images', 'tinified')
+    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, *IMAGE_SUB_FOLDER_)
 
     if file_exists_:
         # Load image with OpenCV in default mode
@@ -137,7 +138,7 @@ def modify_hue_channel(image_file_: str,
     :param increment_: to modify hue channel
     :param save_: flag to save or not the new gotten image
     """
-    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, 'images', 'tinified')
+    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, *IMAGE_SUB_FOLDER_)
 
     if file_exists_:
         # Load image with OpenCV in default mode

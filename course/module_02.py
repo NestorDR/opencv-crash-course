@@ -7,6 +7,7 @@
 import cv2
 
 # --- App modules ---
+from .constants import IMAGE_SUB_FOLDER_
 from helper import show_helper, os_helper
 
 
@@ -17,7 +18,7 @@ def modify_pixels(image_file_: str):
              - slicing notation np_matrix[from_row_number:to_row_number+1, from_col_number:to_col_number+1]
     :param image_file_: filename of the image file to process
     """
-    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, 'images', 'tinified')
+    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, *IMAGE_SUB_FOLDER_)
 
     if file_exists_:
         # Load image with OpenCV
@@ -53,7 +54,7 @@ def crop_image(image_file_: str,
     :param left_cut_percentage_: left side cut percentage, value between 0 and 1
     :param cut_right_percentage_: right side cut percentage, value between 0 and 1
     """
-    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, 'images', 'tinified')
+    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, *IMAGE_SUB_FOLDER_)
 
     if file_exists_:
         if top_cut_percentage_ < 0 or bottom_cut_percentage_ < 0 \
@@ -99,7 +100,7 @@ def resize_image(image_file_: str,
     :param resize_factor_: percentage factor to reduce and increase the size of the image maintaining the aspect ratio,
                            its value must be between 0 and 1
     """
-    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, 'images', 'tinified')
+    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, *IMAGE_SUB_FOLDER_)
 
     if file_exists_:
         if not (0 < resize_factor_ < 1):
@@ -140,7 +141,7 @@ def flip_image(image_file_: str):
     Flips image in the three directions
     :param image_file_: filename of the image file to process
     """
-    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, 'images', 'tinified')
+    file_exists_, full_image_path_ = os_helper.file_exists(image_file_, *IMAGE_SUB_FOLDER_)
 
     if file_exists_:
         # Load image with OpenCV
