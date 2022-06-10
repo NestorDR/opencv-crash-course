@@ -62,14 +62,14 @@ def multiply_contrast(image_file_: str):
 
         # In/Decreasing the difference in the intensity values of the pixels of an image will result
         #  in a global in/decrease in the contrast
-        dark_matrix_ = np.ones(image_.shape) * 0.8          # to decrease contrast
+        dark_matrix_ = np.ones(image_.shape) * 0.5          # to decrease contrast
         bright_matrix_ = np.ones(image_.shape) * 1.2        # to increase contrast
 
         # Use multiply functions, to in/decrease contrast the matrix from de original image,
         image_darker_ = np.uint8(cv2.multiply(np.float64(image_), dark_matrix_))
-        image_brighter_ = np.uint8(cv2.multiply(np.float64(image_), bright_matrix_))
+        image_brighter_ = np.uint8(cv2.multiply(np.float64(image_), bright_matrix_))            # with overflow issue
 
-        # Add multiline observation wrapping the text with textwrap.wrap
+        # Add multiline observation about overflow issue. Wraps the text with textwrap.wrap
         text_ = 'The values which are already high, are becoming greater than 255. Thus, the overflow issue.'
         wrapped_text_ = textwrap.wrap(text_, width=int(len(text_) * 0.60))
         font_face_ = cv2.FONT_HERSHEY_DUPLEX
@@ -91,10 +91,14 @@ def multiply_contrast(image_file_: str):
             top_margin_ += gap_
 
         # Prepare display the images
-        images_titles_ = ['Original Image', 'Lower Contrast', 'Higher Contrast']
+        images_titles_ = ['Original Image', 'Lower Contrast', 'Higher Contrast with Overflow',
+                          'Higher Contrast with Adjusted Overflow']
+
+        # Handling Overflow using np.clip
+        image_brighter_handled = np.uint8(np.clip(cv2.multiply(np.float64(image_), bright_matrix_), 0, 255))
 
         # Show images with OpenCV
-        images_ = [image_, image_darker_, image_brighter_]
+        images_ = [image_, image_darker_, image_brighter_, image_brighter_handled]
         show_helper.cv2_show(images_, images_titles_)
     else:
         print(f'There is not file {full_image_path_}')
