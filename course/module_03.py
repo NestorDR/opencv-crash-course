@@ -37,7 +37,7 @@ def draw_line(image_file_: str):
         yellow_bgr_ = (0, 255, 255)
         cv2.line(image_line_, point_01_, point_02_, color=yellow_bgr_, thickness=5, lineType=cv2.LINE_AA)
 
-        # Prepare display the image and channels
+        # Prepare display the images
         images_titles_ = ['Original Image', 'Annotated Image']
 
         # Show images with OpenCV
@@ -73,7 +73,7 @@ def draw_circle(image_file_: str):
         red_bgr_ = (0, 0, 255)
         cv2.circle(image_circle_, center=(900, 500), radius=100, color=red_bgr_, thickness=5, lineType=cv2.LINE_AA)
 
-        # Prepare display the image and channels
+        # Prepare display the images
         images_titles_ = ['Original Image', 'Annotated Image']
 
         # Show images with OpenCV
@@ -108,7 +108,7 @@ def draw_rectangle(image_file_: str):
         cv2.rectangle(image_rectangle_, pt1=(500, 100), pt2=(700, 600), color=rose_bgr_, thickness=5,
                       lineType=cv2.LINE_8)
 
-        # Prepare display the image and channels
+        # Prepare display the images
         images_titles_ = ['Original Image', 'Annotated Image']
 
         # Show images with OpenCV
@@ -152,7 +152,7 @@ def put_text(image_file_: str):
         cv2.putText(image_text_, text_, org=(50, 700), fontFace=font_face_, fontScale=font_scale_,
                     color=white_bgr_, thickness=2, lineType=cv2.LINE_AA)
 
-        # Prepare display the image and channels
+        # Prepare display the images
         images_titles_ = ['Original Image', 'Annotated Image']
 
         # Show images with OpenCV

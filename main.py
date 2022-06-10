@@ -21,28 +21,31 @@ import course
 if __name__ == '__main__':
     # Module 1: Getting Started with Images
     """ Show images with matplotlib, after seeing them close the windows to continue """
-    course.module_01.plot_image('checkerboard_18x18.png', cv2.IMREAD_GRAYSCALE, 'gray')
-    course.module_01.plot_image('checkerboard_fuzzy_18x18.jpg', cv2.IMREAD_GRAYSCALE)
-    course.module_01.plot_image('coca-cola-logo.png', cv2.IMREAD_COLOR)
-    course.module_01.plot_image('bicycle.jpg', cv2.IMREAD_COLOR)
-    course.module_01.split_image('bicycle.jpg')
-    course.module_01.convert_color_space('mafalda.jpg')
-    course.module_01.modify_hue_channel('mafalda.jpg', 10, save_=False)
+    # course.module_01.plot_image('checkerboard_18x18.png', cv2.IMREAD_GRAYSCALE, 'gray')
+    # course.module_01.plot_image('checkerboard_fuzzy_18x18.jpg', cv2.IMREAD_GRAYSCALE)
+    # course.module_01.plot_image('coca-cola-logo.png', cv2.IMREAD_COLOR)
+    # course.module_01.plot_image('bicycle.jpg', cv2.IMREAD_COLOR)
+    # course.module_01.split_image('bicycle.jpg')
+    # course.module_01.convert_color_space('mafalda.jpg')
+    # course.module_01.modify_hue_channel('mafalda.jpg', 10, save_=False)
 
     # Module 2: Basic Image Manipulation
     """ Shows images with OpenCV, after seeing them press any key to continue """
-    course.module_02.modify_pixels('checkerboard_18x18.png')
-    course.module_02.crop_image('bicycle.jpg', 0.30, 0.30, 0.05, 0.02)
-    course.module_02.resize_image('mafalda.jpg', 0.50)
-    course.module_02.flip_image('coca-cola-logo.png')
+    # course.module_02.modify_pixels('checkerboard_18x18.png')
+    # course.module_02.crop_image('bicycle.jpg', 0.30, 0.30, 0.05, 0.02)
+    # course.module_02.resize_image('mafalda.jpg', 0.50)
+    # course.module_02.flip_image('coca-cola-logo.png')
 
     # Module 3: Image Annotation
-    course.module_03.draw_line('apollo_11_launch.jpg')
-    course.module_03.draw_circle('apollo_11_launch.jpg')
-    course.module_03.draw_rectangle('apollo_11_launch.jpg')
-    course.module_03.put_text('apollo_11_launch.jpg')
+    # course.module_03.draw_line('apollo_11_launch.jpg')
+    # course.module_03.draw_circle('apollo_11_launch.jpg')
+    # course.module_03.draw_rectangle('apollo_11_launch.jpg')
+    # course.module_03.put_text('apollo_11_launch.jpg')
 
-    # TODO Module 4: Image Enhancement
+    # Module 4: Image Enhancement
+    # course.module_04.add_subtract_brightness('new_zealand_coast.jpg')
+    course.module_04.multiply_contrast('new_zealand_coast.jpg')
+
     # TODO Module 5: Accessing the Camera
     # TODO Module 6: Read and Write Videos
     # TODO Module 7: Image Filtering and Edge Detection

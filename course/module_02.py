@@ -31,7 +31,7 @@ def modify_pixels(image_file_: str):
         image_copy_[2:4, 2:4] = 200
         print(image_copy_)
 
-        # Prepare display the image and channels
+        # Prepare display the images
         images_titles_ = ['Original Image', 'Image Copy']
 
         # Show images with OpenCV
@@ -82,7 +82,7 @@ def crop_image(image_file_: str,
         # Crop
         cropped_image_ = image_[top:bottom, left_:right_]
 
-        # Prepare display the image and channels
+        # Prepare display the images
         images_titles_ = ['Original Image', 'Cropped Image']
 
         # Show images with OpenCV
@@ -126,7 +126,7 @@ def resize_image(image_file_: str,
         #  (slow) or #INTER_LINEAR (faster but still looks OK)
         increased_image_ = cv2.resize(image_, dsize=desired_size_, interpolation=cv2.INTER_CUBIC)
 
-        # Prepare display the image and channels
+        # Prepare display the images
         images_titles_ = ['Original Image', 'Reduced Image', 'Increased Image']
 
         # Show images with OpenCV
@@ -156,7 +156,7 @@ def flip_image(image_file_: str):
         image_flipped_vertically_ = cv2.flip(image_, 0)
         image_flipped_both = cv2.flip(image_, -1)
 
-        # Prepare display the image and channels
+        # Prepare display the images
         images_titles_ = ['Original Image', 'Image Flipped Horizontally', 'Image Flipped Vertically',
                           'Image Flipped Fully']
 

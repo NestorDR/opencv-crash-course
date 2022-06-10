@@ -116,7 +116,7 @@ def convert_color_space(image_file_: str):
         # value: represents the bright (brillo/luminosidad), how light or dark is irrespective of the color itself
         hue_channel_, saturation_channel_, value_channel_ = cv2.split(hsv_image_)
 
-        # Prepare display the image and channels
+        # Prepare display the images
         images_titles_ = ['Hue channel', 'Saturation channel', 'Value channel', 'HSV Image', 'Original Image']
         color_maps_ = ['gray', 'gray', 'gray', None, None]
 
@@ -160,7 +160,7 @@ def modify_hue_channel(image_file_: str,
         # Convert to BGR color space
         new_image_ = cv2.cvtColor(new_hsv_image_, cv2.COLOR_HSV2BGR)
 
-        # Prepare display the image and channels
+        # Prepare display the images
         images_titles_ = ['Hue channel', 'New Hue channel', 'HSV Image', 'New HSV Image', 'Original Image', 'New image']
         color_maps_ = ['gray', 'gray', None, None, None, None]
 

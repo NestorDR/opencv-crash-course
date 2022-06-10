@@ -5,6 +5,7 @@ __pycache__/
 .idea/
 .vscode/
 snippets/
+jupyter/
 
 # python environment
 env/
@@ -17,4 +18,4 @@ make.cmd
 *.spec
 
 # files
-notes.*
+notes.md
