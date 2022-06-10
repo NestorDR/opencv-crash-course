@@ -69,24 +69,25 @@ def multiply_contrast(image_file_: str):
         image_darker_ = np.uint8(cv2.multiply(np.float64(image_), dark_matrix_))
         image_brighter_ = np.uint8(cv2.multiply(np.float64(image_), bright_matrix_))
 
-        # Add observation wrapping text with textwrap.wrap
-        top_margin_ = 280
-        left_margin_ = 180
+        # Add multiline observation wrapping the text with textwrap.wrap
+        text_ = 'The values which are already high, are becoming greater than 255. Thus, the overflow issue.'
+        wrapped_text_ = textwrap.wrap(text_, width=int(len(text_) * 0.60))
         font_face_ = cv2.FONT_HERSHEY_DUPLEX
         font_scale_ = 0.8
         font_thickness_ = 1
-        text_ = 'The values which are already high, are becoming greater than 255. Thus, the overflow issue.'
-        width_ = int(len(text_) * 0.60)
-        wrapped_text_ = textwrap.wrap(text_, width_)
-        bgr_color_ = (255, 0, 0)            # Fuchsia rgb(255, 0, 255)
-        bgr_color_ = (0, 255, 255)            # Fuchsia rgb(255, 255, 0)
+        bgr_color_ = (0, 255, 255)            # Yellow rgb(255, 255, 0)
+        # Calculate the interlinear gap
+        text_size_ = cv2.getTextSize(wrapped_text_[0], font_face_, font_scale_, font_thickness_)[0]
+        gap_ = text_size_[1] + 5
+        # Initialize the position of the text in the image
+        left_margin_, top_margin_ = 180, 280
+        # Add lines of text
         for line_ in wrapped_text_:
+            # Add a line of text
             cv2.putText(image_brighter_, line_, org=(left_margin_, top_margin_), fontFace=font_face_,
                         fontScale=font_scale_, color=bgr_color_, thickness=font_thickness_,
                         lineType=cv2.LINE_AA)
-            # Calculate next top margin
-            text_size_ = cv2.getTextSize(line_, font_face_, font_scale_, font_thickness_)[0]
-            gap_ = text_size_[1] + 5
+            # Calculate top margin for the next line
             top_margin_ += gap_
 
         # Prepare display the images
