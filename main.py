@@ -19,7 +19,6 @@ import course
 # For example, in a file my_module.py, when executed as the main program, the __name__ attribute will be '__main__',
 # however if it is used importing it from another module: import my_module, the __name__ attribute will be 'my_module'.
 if __name__ == '__main__':
-    '''
     # Module 1: Getting Started with Images
     """ Show images with matplotlib, after seeing them close the windows to continue """
     course.module_01.plot_image('checkerboard_18x18.png', cv2.IMREAD_GRAYSCALE, 'gray')
@@ -43,9 +42,8 @@ if __name__ == '__main__':
     course.module_03.draw_rectangle('apollo_11_launch.jpg')
     course.module_03.put_text('apollo_11_launch.jpg')
 
-    '''
     # Module 4: Image Enhancement
-    # course.module_04.add_subtract_brightness('new_zealand_coast.jpg')
+    course.module_04.add_subtract_brightness('new_zealand_coast.jpg')
     course.module_04.multiply_contrast('new_zealand_coast.jpg')
 
     # TODO Module 5: Accessing the Camera
